@@ -29,13 +29,14 @@ jobs:
         run:  npm ci
           
       - name: Run Tests 🔎
-        run: npm run soma.test.js
+        run: npm run test
     
   deploy:
     needs: test
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    if: ${{github.event.workflow_run.conclusion == 'sucess'}}
     runs-on: ubuntu-latest
     steps:
        - name: Checkout
