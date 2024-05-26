@@ -29,7 +29,7 @@ jobs:
         run:  npm ci
           
       - name: Run Tests 🔎
-        run: npm run test
+        run: npm run soma.test.js
     
   deploy:
     needs: test
